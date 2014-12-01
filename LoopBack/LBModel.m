@@ -144,7 +144,7 @@
     [dictionary enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
         SEL setter = NSSelectorForSetter(key);
 
-        if ([model respondsToSelector:setter]) {
+      if ([model respondsToSelector:setter] && ![obj isEqual:[NSNull null]]) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
             [model performSelector:setter withObject:obj];
