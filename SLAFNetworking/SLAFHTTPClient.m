@@ -753,7 +753,12 @@ static NSString * const kAFMultipartFormBoundary = @"Boundary+0xAbCdEfGbOuNdArY"
 
 static NSString * const kAFMultipartFormCRLF = @"\r\n";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wall"
+
 static NSInteger const kAFStreamToStreamBufferSize = 1024 * 1024; //1 meg default
+
+#pragma clang diagnostic pop
 
 static inline NSString * AFMultipartFormInitialBoundary() {
     return [NSString stringWithFormat:@"--%@%@", kAFMultipartFormBoundary, kAFMultipartFormCRLF];
